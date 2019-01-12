@@ -94,7 +94,8 @@
   #include <FS.h>
 
   #ifdef ESP32
-    #include "SPIFFS.h"
+    // #include "SPIFFS.h"
+    #include "SD.h"
   #endif
 #endif
 
@@ -651,6 +652,7 @@ class TFT_eSPI : public Print {
            textsize,  // Current font size multiplier
            textdatum, // Text reference datum
            rotation;  // Display rotation (0-3)
+  #include "utility/Smooth_font.h"
 
  private:
 
@@ -702,10 +704,11 @@ class TFT_eSPI : public Print {
 #endif
 
 // Load the Anti-aliased font extension
-#ifdef SMOOTH_FONT
-  #include "Extensions/Smooth_font.h"
-#endif
-
+// #ifdef SMOOTH_FONT
+//   #include "Extensions/Smooth_font.h"
+// #endif
+// #ifdef SMOOTH_FONT
+// #endif
 }; // End of class TFT_eSPI
 
 // Load the Button Class
